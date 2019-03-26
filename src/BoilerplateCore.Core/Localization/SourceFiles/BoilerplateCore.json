@@ -1,0 +1,21 @@
+﻿{
+  "culture": "en",
+  "texts": {
+    "HelloWorld": "Pozdrav Back-End!",
+    "ChangeLanguage": "Promijenite jezik",
+    "HomePage": "HomePage",
+    "About": "About",
+    "Home_Description": "Dobrodosli na zadatak o Korstenju uredjaja...",
+    "About_Description": "O ASP.NET Core-u sa ABP framework.",
+    "Konakt": "Kontakt",
+    "O_Kontaktima": "Neophodni kontakti.",
+    "Osobe": "Osobe",
+    "O_Korisnicima": "Spisak osoba!",
+    "Kancelarije": "Kancelarije",
+    "O_Kancelarijama": "Spisak kancelarija!",
+    "Uredjaji": "Uredjaji",
+    "O_Uredjajima": "Spisak uredjaja!",
+    "KoristeniUredjaji": "KoristeniUredjaji",
+    "O_Koristenju": "Koristenje uredjaja!"
+  }
+}

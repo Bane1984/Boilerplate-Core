@@ -1,0 +1,13 @@
+﻿{
+  "culture": "me",
+  "texts": {
+    "HelloWorld": "Pozdrav Back-End!",
+    "ChangeLanguage": "Promijenite jezik",
+    "HomePage": "HomePage",
+    "About": "About",
+    "Home_Description": "Dobrodosli na zadatak",
+    "About_Description": "O ASP.NET Core-u sa ABP framework.",
+    "Konakt": "Kontakt",
+    "O_Kontaktima": "Neophodni kontakti."
+  }
+}
