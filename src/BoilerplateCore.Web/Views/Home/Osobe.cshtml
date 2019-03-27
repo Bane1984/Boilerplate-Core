@@ -1,12 +1,40 @@
-﻿@using BoilerplateCore.Web.Startup;
+﻿@*@using BoilerplateCore.Web.Startup;
+    @{
+        ViewData["Title"] = "Osobe";
+    }*@
+
+@model IEnumerable<BoilerplateCore.Models.Osoba>
+@using System.Linq;
 @{
     ViewData["Title"] = "Osobe";
 }
 
 <h2>Osobe</h2>
 
-<div class="row">
-    <div class="col-lg-12">
-        @L("O_Korisnicima")
+@*<div class="row">
+        <div class="col-lg-12">
+            @L("O_Korisnicima")
+        </div>
+    </div>*@
+
+ <div style="overflow-x:auto;">
+        <table class="table table-bordered table-hover">
+            <thead>
+
+                <tr>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var osoba in Model)
+                {
+                    <tr>
+                        <td>@osoba.Ime</td>
+                        <td>@osoba.Prezime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
-</div>

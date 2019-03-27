@@ -12,6 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoilerplateCore.Core\BoilerplateCore.Core.csproj" />
+    <ProjectReference Include="..\BoilerplateCore.EntityFrameworkCore\BoilerplateCore.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Abp.EntityFrameworkCore" Version="4.3.0" />
