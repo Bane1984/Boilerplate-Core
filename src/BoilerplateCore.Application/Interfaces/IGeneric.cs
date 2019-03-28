@@ -10,7 +10,7 @@ namespace BoilerplateCore.Interfaces
         List<T> GetAll();
         T GetById(int id);
         void Create(T entitet);
-        void Update(int id, T entitet);
+        void Update(T entitet);
         void Delete(int id);
     }
 }

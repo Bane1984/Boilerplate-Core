@@ -15,28 +15,28 @@ namespace BoilerplateCore.Web.Startup
                     new MenuItemDefinition(
                         PageNames.Osobe,
                         L("Osobe"),
-                        url: "Home/Osobe",
+                        url: "Osobe/Osobe",
                         icon: "fa fa-user"
                         )
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Kancelarije,
                         L("Kancelarije"),
-                        url: "Home/Kancelarije",
+                        url: "Kancelarija/Kancelarija",
                         icon: "fa fa-building"
                         )
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Uredjaji,
                         L("Uredjaji"),
-                        url: "Home/Uredjaji",
+                        url: "Uredjaj/Uredjaji",
                         icon: "fa fa-laptop"
                         )
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.KoristeniUredjaji,
                         L("KoristeniUredjaji"),
-                        url: "Home/KoristeniUredjaji",
+                        url: "KoristeniUredjaji/KoristeniUredjaji",
                         icon: "fa fa-history"
                         )
                 );
