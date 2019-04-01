@@ -15,7 +15,7 @@ namespace BoilerplateCore.Web.Startup
                     new MenuItemDefinition(
                         PageNames.Osobe,
                         L("Osobe"),
-                        url: "Osobe/Osobe",
+                        url: "Osobe/OsobeGetAll",
                         icon: "fa fa-user"
                         )
                 ).AddItem(
@@ -29,7 +29,7 @@ namespace BoilerplateCore.Web.Startup
                     new MenuItemDefinition(
                         PageNames.Uredjaji,
                         L("Uredjaji"),
-                        url: "Uredjaj/Uredjaji",
+                        url: "Uredjaji/GetAllDevices",
                         icon: "fa fa-laptop"
                         )
                 ).AddItem(

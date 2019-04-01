@@ -1,4 +1,6 @@
-﻿using Abp.EntityFrameworkCore;
+﻿using System.Diagnostics;
+using Abp.EntityFrameworkCore;
+using BoilerplateCore.EntityFrameworkCore.Microsoft.Samples.EFLogging;
 using BoilerplateCore.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +13,13 @@ namespace BoilerplateCore.EntityFrameworkCore
         public BoilerplateCoreDbContext(DbContextOptions<BoilerplateCoreDbContext> options)
             : base(options)
         {
+            this.ConfigureLogging(s => Debug.WriteLine(s));
+        }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.EnableSensitiveDataLogging();
         }
 
         public DbSet<Osoba> Osobe { get; set; }

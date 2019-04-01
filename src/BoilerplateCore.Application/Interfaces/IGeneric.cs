@@ -7,7 +7,7 @@ namespace BoilerplateCore.Interfaces
 {
     public interface IGeneric<T>:IApplicationService where T : class
     {
-        List<T> GetAll();
+        T GetAll();
         T GetById(int id);
         void Create(T entitet);
         void Update(T entitet);

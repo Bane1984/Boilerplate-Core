@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using Abp.Application.Services.Dto;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
 using BoilerplateCore.Models;
 
 namespace BoilerplateCore.DTO
 {
+    [AutoMapFrom(typeof(Kancelarija))]
     public class KancelarijaDTO:EntityDto
     {
         public string Opis { get; set; }

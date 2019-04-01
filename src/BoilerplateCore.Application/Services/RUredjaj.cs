@@ -22,10 +22,10 @@ namespace BoilerplateCore.Services
 
 
         //List<T> GetAll();
-        public List<UredjajDTO> GetAll()
+        public ListaUredjajaDTO GetAll()
         {
             var uredjaj = _repositoryUredjaj.GetAll();
-            var uredjajDto = new List<UredjajDTO>(_objectMapper.Map<List<UredjajDTO>>(uredjaj));
+            var uredjajDto = new ListaUredjajaDTO(_objectMapper.Map<List<UredjajDTO>>(uredjaj));
             return uredjajDto;
         }
 

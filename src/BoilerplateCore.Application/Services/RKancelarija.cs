@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Abp.AutoMapper;
-using Abp.Domain.Repositories;
+﻿using Abp.Domain.Repositories;
 using Abp.ObjectMapping;
 using BoilerplateCore.DTO;
 using BoilerplateCore.Interfaces;
 using BoilerplateCore.Models;
+using System.Collections.Generic;
 
 namespace BoilerplateCore.Services
 {
@@ -24,10 +21,10 @@ namespace BoilerplateCore.Services
 
         
         //List<T> GetAll();
-        public List<KancelarijaDTO> GetAll()
+        public ListaKancelarijaDTO GetAll()
         {
             var kancelarija = _repositoryKancelarija.GetAll();
-            var kancelarijaDto = new List<KancelarijaDTO>(_objectMapper.Map<List<KancelarijaDTO>>(kancelarija));
+            var kancelarijaDto = new ListaKancelarijaDTO(_objectMapper.Map<List<KancelarijaDTO>>(kancelarija));
             return kancelarijaDto;
         }
 

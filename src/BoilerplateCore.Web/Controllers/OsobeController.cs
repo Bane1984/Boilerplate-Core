@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BoilerplateCore.DTO;
 using BoilerplateCore.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using BoilerplateCore.DTO;
-using BoilerplateCore.Models;
 
 namespace BoilerplateCore.Web.Controllers
 {
@@ -20,17 +15,40 @@ namespace BoilerplateCore.Web.Controllers
             _kanclarija = kanclarija;
         }
 
-        public IActionResult Osobe()
+        public IActionResult OsobeGetAll()
         {
             var osobe = _osobe.GetAll();
-            var kancelarija = osobe.Select(c=>c.Kancelarijadto.Opis);
-            var model = new ListaOsobaDTO(osobe, kancelarija);
-            return View(model);
+            return View(osobe);
         }
 
-        public IActionResult NovaOsoba()
+        [HttpPost]
+        public IActionResult NovaOsoba(OsobaCreateDto osobaNew)
         {
-            return View();
+            _osobe.Create(osobaNew);
+
+            //RedrectToAction(imeAkcija, imeKontrolera)
+            return RedirectToAction("OsobeGetAll", "Osobe");
         }
+
+        //[HttpGet]
+        //public IActionResult UpdateOsobe(int id)
+        //{
+        //    var osoba = _osobe.GetByIdKanc(id);
+        //    var updateOsoba = new OsobaCreateDto
+        //    {
+        //        Ime = osoba.Ime,
+        //        Prezime = osoba.Prezime,
+        //        KancelarijaId = osoba.KancelarijaId
+        //    };
+        //    ViewData["DropDown"] = Osobeee();
+        //    return View(updateOsoba);
+        //}
+
+        //public SelectList Osobeee()
+        //{
+        //    var osobe = _osobe.GetAll();
+        //    SelectList listaOsoba = new SelectList(osobe, "id", "opis");
+        //    return listaOsoba;
+        //}
     }
 }

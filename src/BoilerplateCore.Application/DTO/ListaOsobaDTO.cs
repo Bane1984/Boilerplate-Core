@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BoilerplateCore.Models;
+﻿using System.Collections.Generic;
 
 namespace BoilerplateCore.DTO
 {
-    public class ListaOsobaDTO
+    public class ListaOsobaDto
     {
-        //public IReadOnlyList<OsobaDTO> Osobe { get; set; }
-        public List<OsobaDTO> Osobe { get; set; }
-        public List<KancelarijaDTO> Kancelarije { get; set; }
+        public IReadOnlyList<OsobaDTO> Osobe { get; set; }
+        //public List<OsobaDTO> Osobe { get; set; }
 
-        public ListaOsobaDTO(List<OsobaDTO> osobe, List<KancelarijaDTO> kancelarije)
+        public ListaOsobaDto(IReadOnlyList<OsobaDTO> osobe)
         {
             Osobe = osobe;
-            Kancelarije = kancelarije;
         }
     }
 }

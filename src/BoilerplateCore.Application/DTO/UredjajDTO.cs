@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using Abp.Application.Services.Dto;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using BoilerplateCore.Models;
 
 namespace BoilerplateCore.DTO
 {
+    [AutoMapFrom(typeof(Uredjaj))]
     public class UredjajDTO: EntityDto
     {
         public string ImeUredjaja { get; set; }

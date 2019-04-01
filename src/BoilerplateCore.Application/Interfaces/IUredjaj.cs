@@ -6,7 +6,12 @@ using BoilerplateCore.DTO;
 
 namespace BoilerplateCore.Interfaces
 {
-    public interface IUredjaj:IGeneric<UredjajDTO>
+    public interface IUredjaj:IApplicationService
     {
+        ListaUredjajaDTO GetAll();
+        UredjajDTO GetById(int id);
+        void Create(UredjajDTO entitet);
+        void Update(UredjajDTO entitet);
+        void Delete(int id);
     }
 }

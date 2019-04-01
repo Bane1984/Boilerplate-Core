@@ -1,0 +1,27 @@
+﻿@using BoilerplateCore.DTO
+@model BoilerplateCore.DTO.OsobaCreateDto
+@{
+    ViewData["Title"] = "UpdateOsobe";
+    SelectList selektovanaLista = (SelectList) ViewData["DropDown"];
+
+}
+
+<h2>UpdateOsobe</h2>
+
+@using (Html.BeginForm("UpdateOsobe", "Osobe"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Ime)
+        @Html.TextBoxFor(c => c.Ime, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Prezime)
+        @Html.TextBoxFor(c => c.Prezime, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.KancelarijaId)
+        @Html.DropDownListFor(c => c.KancelarijaId, selektovanaLista)
+    </div>
+    @Html.HiddenFor(c => c.Id)
+}   
+    <button type="submit" class="btn btn-primary">Update</button>

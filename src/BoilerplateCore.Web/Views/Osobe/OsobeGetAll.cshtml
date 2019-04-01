@@ -1,0 +1,40 @@
+﻿@using BoilerplateCore.Models
+@model BoilerplateCore.DTO.ListaOsobaDto
+
+@{
+    ViewData["Title"] = "Osobe";
+}
+
+<h2>Osobe</h2>
+
+
+<div style="overflow-x:auto;">
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Kancelarija</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var osoba in Model.Osobe)
+        {
+            <tr>
+                <td>@osoba.Ime</td>
+                <td>@osoba.Prezime</td>
+                <td>@osoba.Kancelarija.Opis</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+<p>@Html.ActionLink("Nova Osoba", "NovaOsoba", "Osobe", null, new{@class="btn btn-primary"})</p>
+
+@*@foreach (var kanc in Model.Osobe.Where(c=>c.Id==osoba.Kancelarijadto.Id).Select(c=>c))
+{
+    <td>@kanc.Kancelarijadto.Opis</td>
+}*@

@@ -1,0 +1,27 @@
+﻿@using BoilerplateCore.Models
+@model BoilerplateCore.DTO.ListaUredjajaDTO
+@{
+    ViewData["Title"] = "Uredjaji";
+}
+
+<h2>Uredjaji</h2>
+
+
+<div style="overflow-x:auto;">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Ime uredjaja</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var uredjaji in Model.Uredjaji)
+            {
+                <tr>
+                    <td>@uredjaji.ImeUredjaja</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

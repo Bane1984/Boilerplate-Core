@@ -1,10 +1,12 @@
 ﻿using Abp.Domain.Repositories;
+using Abp.ObjectMapping;
 using BoilerplateCore.DTO;
 using BoilerplateCore.Interfaces;
 using BoilerplateCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using Abp.ObjectMapping;
+using Abp.UI;
 
 namespace BoilerplateCore.Services
 {
@@ -12,17 +14,21 @@ namespace BoilerplateCore.Services
     {
         private readonly IRepository<Osoba> _osobaRepository;
         private readonly IObjectMapper _objectMapper;
-        //private readonly BoilerplateCoreDbContext _context;
+
         public ROsoba(IRepository<Osoba> osobaRepository, IObjectMapper objectMapper)
         {
             _osobaRepository = osobaRepository;
             _objectMapper = objectMapper;
         }
 
-        public List<OsobaDTO> GetAll()
+        public ListaOsobaDto GetAll()
         {
-            var osobe = _osobaRepository.GetAll();
-            var osobeDto = new List<OsobaDTO>(_objectMapper.Map<List<OsobaDTO>>(osobe));
+
+            var osobe = _osobaRepository.GetAll().Include(c => c.Kancelarija);
+            //.Include(c => c.Kancelarija.Opis).ToList();
+            //var osoba = _context.Osobe.Include(c => c.Kancelarija.Opis).ToList();
+            //var ukljuci = osobe.Include(c => c.Kancelarija.Opis);
+            var osobeDto = new ListaOsobaDto(_objectMapper.Map<List<OsobaDTO>>(osobe));
             return osobeDto;
         }
 
@@ -34,13 +40,13 @@ namespace BoilerplateCore.Services
             return osobaDto;
         }
 
-        public void Create(OsobaDTO osoba)
+        public void Create(OsobaCreateDto osoba)
         {
             var osobaC = _objectMapper.Map<Osoba>(osoba);
             _osobaRepository.Insert(osobaC);
         }
 
-        public void Update(OsobaDTO osoba)
+        public void Update(OsobaCreateDto osoba)
         {
             var osobaId = _osobaRepository.Get(osoba.Id);
             _objectMapper.Map(osoba, osobaId);
@@ -51,6 +57,17 @@ namespace BoilerplateCore.Services
             var osobaId = _osobaRepository.Get(id);
             _osobaRepository.Delete(osobaId);
 
+        }
+
+        public Osoba GetByIdKanc(int id)
+        {
+            var osoba = _osobaRepository.GetAll().Include(c => c.Kancelarija).FirstOrDefault(c => c.Id == id);
+            if (osoba == null)
+            {
+                throw new UserFriendlyException("Osoba ne postoji.");
+            }
+
+            return osoba;
         }
     }
 }
