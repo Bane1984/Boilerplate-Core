@@ -11,7 +11,7 @@ namespace BoilerplateCore.Interfaces
         ListaUredjajaDTO GetAll();
         UredjajDTO GetById(int id);
         void Create(UredjajDTO entitet);
-        void Update(UredjajDTO entitet);
+        void Update(int id, UredjajDTO entitet);
         void Delete(int id);
     }
 }

@@ -9,5 +9,6 @@
         public const string Kancelarije = "Kancelarije";
         public const string Uredjaji = "Uredjaji";
         public const string KoristeniUredjaji = "Koristeni Uredjaji";
+        public const string CreateKanc = "New Kancelarija";
     }
 }

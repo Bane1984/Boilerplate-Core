@@ -22,7 +22,7 @@ namespace BoilerplateCore.Web.Startup
                     new MenuItemDefinition(
                         PageNames.Kancelarije,
                         L("Kancelarije"),
-                        url: "Kancelarija/Kancelarija",
+                        url: "Kancelarija/KancelarijaGetAll",
                         icon: "fa fa-building"
                         )
                 ).AddItem(

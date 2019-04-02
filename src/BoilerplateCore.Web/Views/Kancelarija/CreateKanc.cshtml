@@ -1,0 +1,24 @@
+﻿@model BoilerplateCore.DTO.KancelarijaDTO
+@{
+    ViewData["Title"] = "CreateKanc";
+}
+
+<h2>Nova kancelarija</h2>
+
+@*@using (Html.BeginForm("CreateKanc", "Kancelarija", new { kancelarija = Model}))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Opis)
+        @Html.TextBoxFor(c => c.Opis, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(c => c.Id)
+    <button type="submit" class="btn btn-primary">Sačuvaj</button>
+}*@
+
+<form action="" method="post">
+    @Html.LabelFor(c => c.Opis)
+    @Html.TextBoxFor(c => c.Opis, new { @class = "form-control" })
+
+    <button type="submit" class="btn btn-primary">Sačuvaj</button>
+</form>

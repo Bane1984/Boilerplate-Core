@@ -59,11 +59,7 @@ namespace BoilerplateCore.Migrations
 
                     b.Property<string>("ImeUredjaja");
 
-                    b.Property<int?>("OsobaId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("OsobaId");
 
                     b.ToTable("Uredjaji");
                 });
@@ -97,13 +93,6 @@ namespace BoilerplateCore.Migrations
                         .WithMany("Osobe")
                         .HasForeignKey("KancelarijaId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BoilerplateCore.Models.Uredjaj", b =>
-                {
-                    b.HasOne("BoilerplateCore.Models.Osoba")
-                        .WithMany("Uredjaji")
-                        .HasForeignKey("OsobaId");
                 });
 
             modelBuilder.Entity("BoilerplateCore.Models.UredjajUzetVracen", b =>

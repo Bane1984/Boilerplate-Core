@@ -2,9 +2,24 @@
 
 namespace BoilerplateCore.Migrations
 {
-    public partial class UkloniOsobaIdIzUredjaja : Migration
+    public partial class prepravkaModela : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Uredjaji_Osobe_OsobaId",
+                table: "Uredjaji");
+
+            migrationBuilder.DropIndex(
+                name: "IX_Uredjaji_OsobaId",
+                table: "Uredjaji");
+
+            migrationBuilder.DropColumn(
+                name: "OsobaId",
+                table: "Uredjaji");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
                 name: "OsobaId",
@@ -23,21 +38,6 @@ namespace BoilerplateCore.Migrations
                 principalTable: "Osobe",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Uredjaji_Osobe_OsobaId",
-                table: "Uredjaji");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Uredjaji_OsobaId",
-                table: "Uredjaji");
-
-            migrationBuilder.DropColumn(
-                name: "OsobaId",
-                table: "Uredjaji");
         }
     }
 }

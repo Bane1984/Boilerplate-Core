@@ -16,7 +16,6 @@ namespace BoilerplateCore.Models
         [ForeignKey("KancelarijaId")]
         public Kancelarija Kancelarija { get; set; }
 
-        public List<Uredjaj> Uredjaji { get; set; }
         public List<UredjajUzetVracen> UzetiUredjaji { get; set; }
     }
 }

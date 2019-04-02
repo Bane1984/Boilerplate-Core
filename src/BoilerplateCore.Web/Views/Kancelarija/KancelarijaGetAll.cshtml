@@ -1,0 +1,31 @@
+﻿@using BoilerplateCore.Models
+@model BoilerplateCore.DTO.ListaKancelarijaDTO
+
+@{
+    ViewData["Title"] = "Kancelarija";
+}
+
+
+<h2>Spisak Kancelarija</h2>
+
+<div style="overflow-x:auto;">
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Spisak Kancelarija</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var kancelarije in Model.Kancelarije)
+        {
+            <tr>
+                <td>@kancelarije.Opis</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<p>@Html.ActionLink("Nova Kancelarija", "CreateKanc", "Kancelarija", null, new { @class = "btn btn-primary" })</p>
+<p>@Html.ActionLink("Nadji Kancelariju", "GetKancId", "Kancelarija", null, new { @class = "btn btn-primary" })</p>

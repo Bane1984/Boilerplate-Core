@@ -8,10 +8,10 @@ namespace BoilerplateCore.Interfaces
 {
     public interface IKancelarija : IApplicationService
     {
-        ListaKancelarijaDTO GetAll();
+        List<KancelarijaDTO> GetAll();
         KancelarijaDTO GetById(int id);
         void Create(KancelarijaDTO entitet);
-        void Update(KancelarijaDTO entitet);
+        void Update(int id, KancelarijaDTO entitet);
         void Delete(int id);
     }
 }

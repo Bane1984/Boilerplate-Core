@@ -6,9 +6,9 @@ namespace BoilerplateCore.DTO
 {
     public class ListaKancelarijaDTO
     {
-        public IReadOnlyList<KancelarijaDTO> Kancelarije { get; set; }
+        public List<KancelarijaDTO> Kancelarije { get; set; }
 
-        public ListaKancelarijaDTO(IReadOnlyList<KancelarijaDTO> kancelarije)
+        public ListaKancelarijaDTO(List<KancelarijaDTO> kancelarije)
         {
             Kancelarije = kancelarije;
         }

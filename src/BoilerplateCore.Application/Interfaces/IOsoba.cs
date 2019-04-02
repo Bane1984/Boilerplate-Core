@@ -9,7 +9,7 @@ namespace BoilerplateCore.Interfaces
         ListaOsobaDto GetAll();
         OsobaDTO GetById(int id);
         void Create(OsobaCreateDto entitet);
-        void Update(OsobaCreateDto entitet);
+        void Update(int id, OsobaCreateDto entitet);
         Osoba GetByIdKanc(int id);
         void Delete(int id);
     }
