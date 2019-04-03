@@ -4,7 +4,7 @@ using BoilerplateCore.Models;
 
 namespace BoilerplateCore.DTO
 {
-    [AutoMapFrom(typeof(Uredjaj))]
+    [AutoMap(typeof(Uredjaj))]
     public class UredjajDTO: EntityDto
     {
         public string ImeUredjaja { get; set; }

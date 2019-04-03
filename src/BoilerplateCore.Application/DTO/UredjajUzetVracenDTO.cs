@@ -5,7 +5,7 @@ using BoilerplateCore.Models;
 
 namespace BoilerplateCore.DTO
 {
-    [AutoMapFrom(typeof(UredjajUzetVracen))]
+    [AutoMap(typeof(UredjajUzetVracen))]
     public class UredjajUzetVracenDTO: EntityDto
     {
         public DateTime Uzet { get; set; }

@@ -3,7 +3,7 @@ using Abp.AutoMapper;
 
 namespace BoilerplateCore.DTO
 {
-    [AutoMapFrom(typeof(Models.Osoba))]
+    [AutoMap(typeof(Models.Osoba))]
     public class OsobaDTO: EntityDto
     {
         public string Ime { get; set; }

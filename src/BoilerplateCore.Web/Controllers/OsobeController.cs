@@ -1,6 +1,9 @@
 ﻿using BoilerplateCore.DTO;
 using BoilerplateCore.Interfaces;
+using BoilerplateCore.Web.SelectDTO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace BoilerplateCore.Web.Controllers
 {
@@ -21,13 +24,22 @@ namespace BoilerplateCore.Web.Controllers
             return View(osobe);
         }
 
-        [HttpPost]
+
+
+        [HttpGet]
+        public IActionResult NovaOsoba()
+        {
+            ViewData["DropDown"] = KancelarijeSelect();
+            return View(new OsobaCreateDto());
+
+        }
+
+        //[HttpPost]
         public IActionResult NovaOsoba(OsobaCreateDto osobaNew)
         {
             _osobe.Create(osobaNew);
-
             //RedrectToAction(imeAkcija, imeKontrolera)
-            return RedirectToAction("OsobeGetAll", "Osobe");
+            return RedirectToAction("OsobeGetAll");
         }
 
         //[HttpGet]
@@ -44,11 +56,16 @@ namespace BoilerplateCore.Web.Controllers
         //    return View(updateOsoba);
         //}
 
-        //public SelectList Osobeee()
-        //{
-        //    var osobe = _osobe.GetAll();
-        //    SelectList listaOsoba = new SelectList(osobe, "id", "opis");
-        //    return listaOsoba;
-        //}
+        //var kancelarije = KancelarijaDropdown();
+        //ViewData["DropDown"] = kancelarije;
+        //return View(new OsobaInput());
+
+        public SelectList KancelarijeSelect()
+        {
+            var kancelarijaSelect = new KancelarijaSelectDto(_kanclarija);
+            var sveKancelarije = kancelarijaSelect.Kancelarija.ToList();
+            SelectList listaKancelarija = new SelectList(sveKancelarije, "Id", "Opis");
+            return listaKancelarija;
+        }
     }
 }

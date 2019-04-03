@@ -14,11 +14,13 @@ namespace BoilerplateCore.Services
     {
         private readonly IRepository<Osoba> _osobaRepository;
         private readonly IObjectMapper _objectMapper;
+        private readonly IRepository<Kancelarija> _kancelarijaRepository;
 
-        public ROsoba(IRepository<Osoba> osobaRepository, IObjectMapper objectMapper)
+        public ROsoba(IRepository<Osoba> osobaRepository, IObjectMapper objectMapper, IRepository<Kancelarija> kancelarijaRepository)
         {
             _osobaRepository = osobaRepository;
             _objectMapper = objectMapper;
+            _kancelarijaRepository = kancelarijaRepository;
         }
 
         public ListaOsobaDto GetAll()
@@ -51,6 +53,18 @@ namespace BoilerplateCore.Services
             {
                 throw new UserFriendlyException("Osoba sa naznacenim Id vec posoji.");
             }
+
+            Osoba novaOsoba = new Osoba
+            {
+                Ime = osoba.Ime,
+                Prezime = osoba.Prezime,
+                KancelarijaId = osoba.KancelarijaId
+            };
+
+            Kancelarija novaKancelarija = new Kancelarija();
+            var kancId = _kancelarijaRepository.Get(osoba.KancelarijaId);
+
+            
             var osobaC = _objectMapper.Map<Osoba>(osoba);
             _osobaRepository.Insert(osobaC);
         }
